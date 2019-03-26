@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+        <teiHeader>
+                <fileDesc>
+                        <titleStmt>
+                                <title>Schema_MUSIL</title>
+                                <author>Katharina Godler</author>
+                        </titleStmt>
+                        <publicationStmt>
+                                <p>for use by ÖNB/KONDE</p>
+                        </publicationStmt>
+                        <notesStmt>
+                                <note type="ns">http://www.example.org/ns/nonTEI</note>
+                        </notesStmt>
+                        <sourceDesc>
+                                <p>created on Tuesday 10th July 2018 01:23:17 PM for Nachlass-Mappe V/6</p>
+                        </sourceDesc>
+                </fileDesc>
+        </teiHeader>
+        <text>
+                <front>
+                        <divGen type="toc"/>
+                </front>
+                <body>
+                        <p>Musil Customization starts with modules tei, core, textstructure, header, msdescription, transcr and linking. 
+                                This customization changes several attribute classes (att.written, att.transcriptional) and specifies various elements 
+                                to define and describe the Musil specific values. In Mappe V/6 the scribe is almost always Robert Musil. 
+                                To make a recognizable MUSIL-ODD/MUSIL-SCHEMA the phenomena of the author's hand are documented and Musil's writing process is described. </p>
+                        <schemaSpec ident="Schema_MUSIL" docLang="en" prefix="musil" xml:lang="en">
+                                <moduleRef key="core" except=""/>
+                                <moduleRef key="tei" except=""/>
+                                <moduleRef key="header" except=""/>
+                                <moduleRef key="textstructure" except=""/>
+                                <moduleRef key="msdescription" except=""/>
+                                <moduleRef key="transcr" except=""/>
+                                <elementSpec ident="handNote" module="header" mode="change">
+                                        <attList>
+                                                <attDef ident="xml:id" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="blue"/>
+                                                                <valItem ident="brown"/>
+                                                                <valItem ident="green"/>
+                                                                <valItem ident="pencil"/>
+                                                                <valItem ident="red"/>
+                                                        </valList>
+                                                </attDef>
+                                                <attDef ident="medium" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="black_ink"/>
+                                                        </valList>
+                                                </attDef>
+                                                <attDef ident="rendition" mode="change">
+                                                        <desc>points to a description of the rendering or presentation used for this element in the source text.
+                                                                </desc>
+                                                        <valList type="closed" mode="replace">
+                                                                <valItem ident="final_draft"/>
+                                                        </valList>
+                                                </attDef>
+                                                <attDef ident="scribe" mode="change">
+                                                        <desc>gives a name or other identifier for the scribe believed to be responsible for this hand.
+                                                                <!--RMusil=Robert Musil--></desc>
+                                                        <valList type="closed" mode="replace">
+                                                                <valItem ident="RMusil"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <moduleRef key="linking" except=""/>
+                                <elementSpec ident="add" module="core" mode="change">
+                                        <attList><attDef ident="rend" mode="change">
+                                                <valList type="open" mode="replace">
+                                                        <valItem ident="vertical"/>
+                                                </valList>
+                                        </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="del" module="core" mode="change">
+                                        <attList>
+                                                <attDef ident="rend" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="vertical"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="note" module="core" mode="change">
+                                        <attList>
+                                                <attDef ident="rend" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="vertical"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="support" module="msdescription" mode="change">
+                                        <attList>
+                                                <attDef ident="rend" mode="change">
+                                                        <desc>indicates how the element in question was rendered or presented in the source text.
+                                                                <!--recte_re_1 - re=regarding page--></desc>
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="recte"/>
+                                                                <valItem ident="verso"/>
+                                                                <valItem ident="recte_re_1"/>
+                                                                <valItem ident="verso_re_1"/>
+                                                                <valItem ident="recte_re_2"/>
+                                                                <valItem ident="verso_re_2"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <classSpec ident="att.written" type="atts" mode="change" module="tei">
+                                        <attList>
+                                                <attDef ident="hand" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="#blue"/>
+                                                                <valItem ident="#brown"/>
+                                                                <valItem ident="#green"/>
+                                                                <valItem ident="#pencil"/>
+                                                                <valItem ident="#red"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </classSpec>
+                                <classSpec ident="att.transcriptional" type="atts" mode="change" module="tei">
+                                        <attList>
+                                                <attDef ident="status" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="level2"/>
+                                                                <valItem ident="level3"/>
+                                                                <valItem ident="level4"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </classSpec>
+                                <elementSpec ident="seg" module="linking" mode="change">
+                                        <attList>
+                                                <attDef ident="rendition" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="before"/>
+                                                        </valList>
+                                                </attDef>
+                                                <attDef ident="rend" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="right"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="idno" module="header" mode="change">
+                                        <attList>
+                                                <attDef ident="type" mode="change">
+                                                        <desc>categorizes the identifier, for example as an ISBN, Social Security number, etc.
+                                                                <!--sn=Series-Nova-Paginierung--></desc>
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="sn"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="metamark" module="transcr" mode="change">
+                                        <attList>
+                                                <attDef ident="function" mode="change">
+                                                        <desc>describes the function (for example  status, insertion, deletion, transposition) of the metamark.
+                                                                <!--del=deletion mark--></desc>
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="del"/>
+                                                                <valItem ident="paragraph-remove"/>
+                                                                <valItem ident="transposition"/>
+                                                        </valList>
+                                                </attDef>
+                                                <attDef ident="rend" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="strikethrough"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="restore" module="transcr" mode="change">
+                                        <attList>
+                                                <attDef ident="rend" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="dotted_underline"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                                <elementSpec ident="supplied" module="transcr" mode="change">
+                                        <attList>
+                                                <attDef ident="reason" mode="change">
+                                                        <valList type="open" mode="replace">
+                                                                <valItem ident="syntax"/>
+                                                        </valList>
+                                                </attDef>
+                                        </attList>
+                                </elementSpec>
+                        </schemaSpec>
+                </body>
+        </text>
+</TEI>
